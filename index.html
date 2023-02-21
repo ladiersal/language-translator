@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translate</title>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://icons.iconarchive.com/icons/martz90/circle-addon2/512/google-translate-icon.png" type="image/x-icon" />
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="head-right">
+                <a href="#">Rellenid</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container wrapper">
+            <div class="translate-tab">
+                <button class="translate-button active-button">
+                    <span class="icon language-icon"><ion-icon name="language-outline"></ion-icon></span>
+                    <span class="button-text">
+                        <span class="translate-text">Translate Text</span>
+                        <span class="translate-language">58 language</span>
+                    </span>
+                </button>
+                <label for="upload-document" class="upload-document-button">
+                    <span class="icon language-icon">
+                        <ion-icon name="document-text-outline"></ion-icon>
+                    </span>
+                    <span class="button-text">
+                        <span id="upload-title">Upload document</span>
+                        <span class="translate-language">Txt, Word, PDF, PP...</span>
+                    </span>
+                    <input type="file" id="upload-document" hidden>
+                </label>
+                <button id="download-document-button">
+                    <span class="icon language-icon">
+                        <ion-icon name="cloud-download-outline"></ion-icon>                    </span>
+                    <span class="button-text">
+                        <span class="translate-text">Download document</span>
+                        <span class="translate-language">Txt format</span>
+                    </span>
+                </button>
+            </div>
+            <div class="translation-box-wrapper">
+
+                <div class="translate">
+                    <div class="translation-input">
+                        <div class="from">
+                            <div class="dropdown-container" id="input-language">
+                                <div class="dropdown-toggle">
+                                    <ion-icon name="globe-outline"></ion-icon>
+                                    <span class="selected" data-value="auto">Auto Detect</span>
+                                    <ion-icon name="chevron-down-outline" class="down"></ion-icon>
+                                </div>
+                                <ul class="dropdown-menu">
+                                </ul>
+                            </div>
+                        </div>
+                        
+                       
+                        <div class="text-area">
+                            <textarea name="" id="input-text" cols="30" rows="10" placeholder="Enter your text here"></textarea>
+                            <div class="chars"><span class="input-chars">0</span><span> / 5000</span></div>
+                         </div>
+                         <div class="bottom-left-icon">
+                            <span class="bottom-icon mic-wrapper">
+                                <ion-icon class="mic" id="from" name="mic-outline"></ion-icon>
+                            </span>
+                            <span class="dn-mic display-none">
+                                <svg class="" xmlns="http://www.w3.org/2000/svg" width="17" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 246, 246);transform: ;msFilter:;"><path d="m21.707 20.293-3.388-3.388A7.942 7.942 0 0 0 20 12.021h-2a5.95 5.95 0 0 1-1.109 3.456l-1.452-1.452c.348-.591.561-1.27.561-2.004v-6C16 3.804 14.215 2 12.021 2c-.07 0-.14.009-.209.025A4.005 4.005 0 0 0 8 6.021v.565L3.707 2.293 2.293 3.707l18 18 1.414-1.414zM10 6.021c0-1.103.897-2 2-2a.918.918 0 0 0 .164-.015C13.188 4.08 14 4.956 14 6.021v6c0 .172-.029.335-.071.494L10 8.586V6.021zm-4 6H4c0 4.072 3.06 7.436 7 7.931v2.069h2v-2.07a7.993 7.993 0 0 0 2.218-.611l-1.558-1.558a5.979 5.979 0 0 1-1.66.239c-3.309 0-6-2.692-6-6z"></path><path d="M8.011 12.132a3.993 3.993 0 0 0 3.877 3.877l-3.877-3.877z"></path></svg>
+                            </span>
+                            <span class="bottom-icon click"><ion-icon class="copy" id="from" name="copy-outline"></ion-icon>    </span>                
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div class="swap">
+                            <ion-icon name="swap-horizontal-outline"></ion-icon>
+                        </div>
+                   </div>
+                    <div class="translation-output">
+                        
+                        <div class="to">
+                            <div class="dropdown-container" id="output-language">
+                                <div class="dropdown-toggle">
+                                    <ion-icon name="globe-outline"></ion-icon>
+                                    <span class="selected" data-value="en-US">English (EN)</span>
+                                    <ion-icon name="chevron-down-outline"  class="down"></ion-icon>
+                                </div>
+                                <ul class="dropdown-menu"></ul>
+
+                            </div>
+                           
+                        </div>
+                        <div class="text-area">
+                            <textarea name="" id="output-text" cols="30" rows="10" placeholder="Translated text will appear here" readonly></textarea>
+                        </div>
+                          <div class="bottom-right-icon">
+                            <span class="bottom-icon click">
+                                <ion-icon class="volume" id="to" name="volume-medium-outline"></ion-icon>
+                            </span>
+                            <span class="bottom-icon click">
+                                <ion-icon class="copy" id="to" name="copy-outline"></ion-icon>   
+                            </span>
+                            <span class="bottom-icon shareWrapper share-no-click">
+                                <ion-icon class="share" id="to" name="share-social-outline"></ion-icon>
+                                            
+                            </span>
+                            <ul class="share-icons hide">
+                                <li class="">
+                                    <a href="" class="twitter" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </main>
+
+    <script src="languages.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
